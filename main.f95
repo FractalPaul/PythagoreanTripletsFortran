@@ -6,7 +6,7 @@ program PythagoreanTriplets
     implicit none
 
     ! Declare variables
-    integer :: m, n, a, b, c, maxNum
+    integer :: m, n, a, b, c, temp, maxNum
     integer :: io
 
     ! Prepare file to output the Triplets.
@@ -20,6 +20,12 @@ program PythagoreanTriplets
             a = m**2 - n**2
             b = 2*m*n
             c = m**2 + n**2
+            if (a > b) then
+                temp = a
+                a = b
+                b = temp
+            end if
+            
             print *, '(', a,',',b,',',c,')'
             write(io,*) a, ',', b,',', c
         end do
